@@ -16,9 +16,9 @@
   
   
   
-  ## 🖼️ Print da aplicação
+  ## 🖼️ Prints da aplicação
   
-  ![print da aplicação](https://github.com/UT0P1C/DigiDex/blob/master/print.png)
- 
+  ![Hubble telescope](https://github.com/UT0P1C/Nasa-bot-discord/blob/master/hubble%20print.png)
+
 
  
