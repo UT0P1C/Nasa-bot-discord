@@ -2,9 +2,11 @@
 //make de request from the images and get a random image from hubble telescope
 const axios = require("axios").default;
 
-const searchQuery = "hubble";
+var randPage = Math.floor(Math.random() * 11);
 
-const randPage = Math.floor(Math.random() * 2);
+var searchQuery = "";
+
+var keywords = ""
 
 
 const imagesUrl = `https://images-api.nasa.gov/search?q=${searchQuery}&page=${randPage}&media_type=image`;
@@ -12,6 +14,11 @@ const imagesUrl = `https://images-api.nasa.gov/search?q=${searchQuery}&page=${ra
 const collectionLinks = [];
 
 const getImages = async (url) => {
+
+	if(searchQuery === "james webb"){
+		randPage = 1;
+	}
+
 	const response = await axios.get(url);
 
 	const data = response.data;
@@ -27,8 +34,6 @@ const getImages = async (url) => {
 	const randUrl = collectionLinks[randNumber];
 
 	const randImg = await getRandImage(randUrl);
-
-	console.log(randImg);
 	
 	return randImg;
 }
@@ -66,8 +71,26 @@ client.on("message", async (message) => {
 	}
 
 	if(message.content.startsWith(prefix + "hubble")){
+		keywords = "Hubble Space"
+		searchQuery = "hubble";
 		const imgUrl = await getImages(imagesUrl);
 		message.channel.send("get a random pic from hubble, the telescope");
+		message.channel.send(imgUrl);
+	}
+
+	if(message.content.startsWith(prefix + "mars rover")){
+		keywords = "Mars Exploration Rover"
+		searchQuery = "mars rover";
+		const imgUrl = await getImages(imagesUrl);
+		message.channel.send("get a random pic from mars rover");
+		message.channel.send(imgUrl);
+	}
+
+	if(message.content.startsWith(prefix + "james webb")){
+		keywords = "James Webb Space "
+		searchQuery = "james webb";
+		const imgUrl = await getImages(imagesUrl);
+		message.channel.send("get a random pic from james webb, the telescope");
 		message.channel.send(imgUrl);
 	}
 });
