@@ -1,3 +1,0 @@
-Y1ctL7EKCZ2mwZWpoXTH7FelnG6KC5O2HZK2LI5X
-
-https://api.nasa.gov/planetary/apod?api_key=Y1ctL7EKCZ2mwZWpoXTH7FelnG6KC5O2HZK2LI5X
